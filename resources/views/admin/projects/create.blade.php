@@ -19,6 +19,16 @@
                 <label for="project-content" class="form-label">Contenuto del progetto</label>
                 <textarea class="form-control" id="project-content" rows="5" name="content"></textarea>
             </div>
+            <div class="mb-3">
+                <label for="project-type" class="form-label">Tipo del progetto - {{ old('type_id') }}</label>
+                <select class="form-select" id="project-type" aria-label="Default select example" name="type_id">
+                    <option value="">Seleziona Tipo</option>
+                    <@foreach ($types as $type)
+                        <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>
+                            {{ $type->title }}</option>
+                        @endforeach
+                </select>
+            </div>
             <button class="btn btn-primary">Crea nuovo progetto</button>
         </form>
     </div>
