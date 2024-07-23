@@ -6,8 +6,7 @@ use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-// use Illuminate\Support\Facades\DB;
-// use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Schema;
 
 class TypeSeeder extends Seeder
 {
@@ -16,7 +15,7 @@ class TypeSeeder extends Seeder
      */
     public function run(): void
     {
-        // Schema::disableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
 
         //SVUOTO LA TABELLA PRIMA DI POPOLARLA PER NON ACCUMULARE TROPPI ELEMENTI
         Type::truncate();
@@ -32,6 +31,6 @@ class TypeSeeder extends Seeder
             $new_type->save();
         }
 
-        // Schema::enableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints();
     }
 }
