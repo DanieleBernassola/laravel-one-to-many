@@ -66,7 +66,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -85,7 +87,7 @@ class ProjectController extends Controller
 
         $project->update($data);
 
-        return redirect()->route('admin.projects.index')->with('message', $project->id(), 'Progetto modificato correttamente');
+        return redirect()->route('admin.projects.index')->with('message', 'Progetto modificato correttamente');
     }
 
     /**
